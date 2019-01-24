@@ -6,9 +6,7 @@ class Solution(object):
         """
         if not nums:
             return 0
-        pos = 0
-        for i in range(1, len(nums)):
-            if nums[i] != nums[pos]:
-                pos += 1
-                nums[pos] = nums[i]
-        return pos
+        for i in range(len(nums)-1, 0, -1):
+            if nums[i] == nums[i-1]:
+                del nums[i]
+        return len(nums)
