@@ -4,12 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        for i in range(0, len(nums)-1):
-            j = 0
-            if nums[i] == nums[j]:
-                nums.remove(nums[i])
-            else:
-                j += 1
-        return len(nums)
-
-        
+        if not nums:
+            return 0
+        pos = 0
+        for i in range(1, len(nums)):
+            if nums[i] != nums[pos]:
+                pos += 1
+                nums[pos] = nums[i]
+        return pos
